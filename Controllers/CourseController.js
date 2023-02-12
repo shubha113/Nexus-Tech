@@ -1,6 +1,6 @@
 import { catchAsyncError } from "../Middleware/catchAsyncError.js"
 import {Course} from "../Models/Course.js"
-import ErrorHandler from "../Utils/errorHandler.js";
+import ErrorHandler from "../Utils/ErrorHandler.js";
 import cloudinary from "cloudinary";
 import {Stats} from "../Models/Stats.js";
 export const getAllCourses = catchAsyncError(async (req, res, next) => {

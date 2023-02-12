@@ -1,4 +1,4 @@
-import ErrorHandler from "../Utils/errorHandler.js";
+import ErrorHandler from "../Utils/ErrorHandler.js";
 import jwt from "jsonwebtoken";
 import { catchAsyncError } from "./catchAsyncError.js";
 import { User } from "../Models/User.js";

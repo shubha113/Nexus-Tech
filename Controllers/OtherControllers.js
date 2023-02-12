@@ -1,5 +1,5 @@
 import { catchAsyncError } from "../Middleware/catchAsyncError.js";
-import errorHandler from "../Utils/errorHandler.js";
+import errorHandler from "../Utils/ErrorHandler.js";
 import { sendEmail } from "../Utils/sendEmail.js";
 import {Stats} from "../Models/Stats.js";
 
