@@ -1,8 +1,8 @@
 {
   "version": 2,
   "name": "startup",
-  "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/server.js" }],
+  "builds": [{ "src": "Server.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/Server.js" }],
   "headers": [
     {
       "source": "/api/(.*)",
