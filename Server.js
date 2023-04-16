@@ -1,8 +1,8 @@
 import app from "./App.js";
-import {connectDB} from "./Config/database.js";
+import { connectDB } from "./Config/database.js";
 import cloudinary from "cloudinary";
 import nodeCron from "node-cron";
-import {Stats} from "./Models/Stats.js"
+import { Stats } from "./Models/Stats.js";
 connectDB();
 
 cloudinary.v2.config({

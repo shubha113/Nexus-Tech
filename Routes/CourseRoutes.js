@@ -9,7 +9,7 @@ router.route("/courses").get(getAllCourses);
 
 // create new course - only admin
 router
-  .route("/createcourse")
+  .route("/createCourse")
   .post(isAuthenticated, authorizeAdmin, singleUpload, createCourse);
 
 // Add lecture, Delete Course, Get Course Details

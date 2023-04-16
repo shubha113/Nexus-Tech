@@ -9,6 +9,7 @@ import cloudinary from "cloudinary";
 import getDataUri from "../Utils/DataUri.js";
 import { Stats } from "../Models/Stats.js";
 
+
 export const register = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
   const file = req.file;
@@ -309,4 +310,3 @@ User.watch().on("change", async () => {
 
   await stats[0].save();
 });
-

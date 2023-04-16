@@ -1,8 +1,10 @@
-import { catchAsyncError } from "../Middleware/catchAsyncError.js"
-import {Course} from "../Models/Course.js"
+import { catchAsyncError } from "../Middleware/catchAsyncError.js";
+import { Course } from "../Models/Course.js";
 import ErrorHandler from "../Utils/ErrorHandler.js";
 import cloudinary from "cloudinary";
-import {Stats} from "../Models/Stats.js";
+import getDataUri from "../Utils/DataUri.js";
+import { Stats } from "../Models/Stats.js";
+
 export const getAllCourses = catchAsyncError(async (req, res, next) => {
   const keyword = req.query.keyword || "";
   const category = req.query.category || "";
@@ -154,7 +156,11 @@ export const deleteLecture = catchAsyncError(async (req, res, next) => {
 });
 
 Course.watch().on("change", async () => {
-  const stats = await Stats.find({}).sort({ createdAt: "desc" }).limit(1);
+  let stats = await Stats.find({}).sort({ createdAt: "desc" }).limit(1);
+
+  if (stats.length === 0) {
+    stats = await Stats.create({ views: 0 });
+  }
 
   const courses = await Course.find({});
 
@@ -163,6 +169,7 @@ Course.watch().on("change", async () => {
   for (let i = 0; i < courses.length; i++) {
     totalViews += courses[i].views;
   }
+
   stats[0].views = totalViews;
   stats[0].createdAt = new Date(Date.now());
 
